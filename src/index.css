@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 97%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 40 20% 97%;
+    --muted-foreground: 0 0% 48%;
+    --accent: 43 45% 59%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 43 45% 59%;
+    --radius: 0.5rem;
+    
+    /* Custom Colors */
+    --gold: #C9A962;
+    --orange: #E89A5A;
+    --cream: #FAF8F5;
+    --text-gray: #7A7A7A;
+    --border-gray: #E5E5E5;
+    
+    /* Animation Easings */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-organic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-body {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  
+  .text-gold {
+    color: var(--gold);
+  }
+  
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  
+  .highlight {
+    @apply font-medium;
+    color: var(--gold);
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-black text-sm tracking-widest uppercase transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-black text-white;
+  }
+  
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3 border text-sm tracking-widest uppercase transition-all duration-300;
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  
+  .btn-gold:hover {
+    background-color: var(--gold);
+    @apply text-white;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .container-custom {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 mx-auto;
+    max-width: 1400px;
+  }
+  
+  .container-narrow {
+    @apply w-full px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 900px;
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.6s var(--ease-out-expo) forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s var(--ease-smooth) forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s var(--ease-out-expo) forwards;
+  }
+  
+  /* Floating Animation */
+  .float-organic {
+    animation: floatOrganic 12s ease-in-out infinite;
+  }
+  
+  /* Breathing Scale */
+  .breathe {
+    animation: breathe 8s ease-in-out infinite;
+  }
+  
+  /* Link Underline Effect */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-px bg-current transition-all duration-300;
+    transform: translateX(-50%);
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatOrganic {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b89a52;
+}
