@@ -4,6 +4,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FORCE LIGHT MODE - Override any system dark mode preferences */
+html {
+  color-scheme: light only !important;
+}
+
+body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Prevent dark mode media query from affecting the site */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    color-scheme: light only !important;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -26,14 +45,14 @@
     --input: 0 0% 90%;
     --ring: 43 45% 59%;
     --radius: 0.5rem;
-    
+
     /* Custom Colors */
     --gold: #C9A962;
     --orange: #E89A5A;
     --cream: #FAF8F5;
     --text-gray: #7A7A7A;
     --border-gray: #E5E5E5;
-    
+
     /* Animation Easings */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);

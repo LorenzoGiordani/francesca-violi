@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
     <title>Francesca Violi - Psicologa Psicoterapeuta</title>
     <script>
-      // Force light mode - prevent dark mode
-      document.documentElement.classList.add('light');
-      document.documentElement.style.colorScheme = 'light';
+      // Force light mode - prevent dark mode at all costs
+      (function() {
+        document.documentElement.classList.add('light');
+        document.documentElement.style.colorScheme = 'light only';
+        document.documentElement.setAttribute('data-theme', 'light');
+      })();
     </script>
   </head>
   <body>
