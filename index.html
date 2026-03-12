@@ -1,9 +1,11 @@
 <!doctype html>
-<html lang="en" class="light">
+<html lang="en" class="light" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="darkreader-lock" />
     <title>Francesca Violi - Psicologa Psicoterapeuta</title>
     <script>
       // Force light mode - prevent dark mode at all costs
@@ -11,6 +13,11 @@
         document.documentElement.classList.add('light');
         document.documentElement.style.colorScheme = 'light only';
         document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('style', 'color-scheme: light only !important;');
+        
+        // Block Dark Reader and similar extensions
+        document.documentElement.setAttribute('data-darkreader-mode', 'static');
+        document.documentElement.setAttribute('data-darkreader-scheme', 'light');
       })();
     </script>
   </head>

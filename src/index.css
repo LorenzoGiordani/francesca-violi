@@ -4,23 +4,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FORCE LIGHT MODE - Override any system dark mode preferences */
+/* ========================================
+   FORCE LIGHT MODE - Block ALL dark modes
+   ======================================== */
+
+/* Force light color scheme at the root level */
 html {
   color-scheme: light only !important;
 }
 
+/* Force white background and black text on body */
 body {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
 
-/* Prevent dark mode media query from affecting the site */
+/* Override prefers-color-scheme: dark */
 @media (prefers-color-scheme: dark) {
   html, body {
     background-color: #ffffff !important;
     color: #000000 !important;
     color-scheme: light only !important;
   }
+}
+
+/* Override Brave/Firefox forced colors mode */
+@media (forced-colors: active) {
+  html, body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* Prevent any element from going dark */
+*, *::before, *::after {
+  background-color: transparent !important;
+}
+
+/* Ensure all text stays black */
+h1, h2, h3, h4, h5, h6, p, span, a, div, section, article, header, footer, nav, button, input, textarea, select, label {
+  color: #000000 !important;
+}
+
+/* Ensure all backgrounds stay white/light */
+html, body, main, div, section, article, header, footer, nav {
+  background-color: #ffffff !important;
 }
 
 @layer base {
