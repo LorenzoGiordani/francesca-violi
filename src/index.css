@@ -36,19 +36,20 @@ body {
   }
 }
 
-/* Prevent any element from going dark */
-*, *::before, *::after {
-  background-color: transparent !important;
-}
-
-/* Ensure all text stays black */
+/* Ensure all text stays black (exclude images) */
 h1, h2, h3, h4, h5, h6, p, span, a, div, section, article, header, footer, nav, button, input, textarea, select, label {
   color: #000000 !important;
 }
 
-/* Ensure all backgrounds stay white/light */
-html, body, main, div, section, article, header, footer, nav {
+/* Ensure all backgrounds stay white/light (exclude img elements) */
+html, body, main, div, section, article, header, footer, nav, main {
   background-color: #ffffff !important;
+}
+
+/* Protect images from dark mode filters */
+img, picture, video, canvas, svg {
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 @layer base {
